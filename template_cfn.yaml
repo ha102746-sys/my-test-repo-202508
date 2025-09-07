@@ -4,4 +4,4 @@ Resources:
       Type: 'AWS::S3::Bucket'
       Properties:
         AccessControl: Private
-        BucketName: githubcon-test-202412230900
+        BucketName: githubcon-test-ari-20250907001
