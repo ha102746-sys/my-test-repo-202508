@@ -1,6 +1,6 @@
 AWSTemplateFormatVersion: "2010-09-09"
 Resources:
-    S3Bucket:
+    MyS3Bucket:
       Type: 'AWS::S3::Bucket'
       Properties:
         AccessControl: Private
@@ -10,3 +10,16 @@ Resources:
           BlockPublicPolicy: false
           IgnorePublicAcls: false
           RestrictPublicBuckets: false
+
+    MyBucketPolicy:
+      Type: AWS::S3::BucketPolicy
+      Properties:
+      Bucket: !Ref MyS3Bucket
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Action: "s3:GetObject"
+            Resource: !Sub "arn:aws:s3:::${MyS3Bucket}/*"
+            Principal: "*"
+
