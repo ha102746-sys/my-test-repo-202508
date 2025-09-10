@@ -5,3 +5,8 @@ Resources:
       Properties:
         AccessControl: Private
         BucketName: githubcon-test-ari-20250907001
+        PublicAccessBlockConfiguration:
+          BlockPublicAcls: false
+          BlockPublicPolicy: false
+          IgnorePublicAcls: false
+          RestrictPublicBuckets: false
