@@ -1,16 +1,22 @@
 AWSTemplateFormatVersion: "2010-09-09"
 Resources:
+#静的Webサイトホスティング用のS3作成
     MyS3Bucket:
       Type: 'AWS::S3::Bucket'
       Properties:
         AccessControl: Private
         BucketName: githubcon-test-ari-20250907001
+#パブリックアクセスを許可する
         PublicAccessBlockConfiguration:
           BlockPublicAcls: false
           BlockPublicPolicy: false
           IgnorePublicAcls: false
           RestrictPublicBuckets: false
+#静的Webサイトホスティングの設定
+        WebsiteConfiguration:
+          IndexDocument: index.html
 
+#バケットポリシーの設定
     MyBucketPolicy:
       Type: AWS::S3::BucketPolicy
       Properties:
